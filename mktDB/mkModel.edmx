@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="mkCliCargo">
+          <Key>
+            <PropertyRef Name="mkCliCargoId" />
+          </Key>
+          <Property Name="mkCliCargoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkCliCategoriaId" Type="int" />
+          <Property Name="CliCargoValue" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="mkCliCategoria">
+          <Key>
+            <PropertyRef Name="mkCliCategoriaId" />
+          </Key>
+          <Property Name="mkCliCategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CliCategoriaValue" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="mkCliente">
+          <Key>
+            <PropertyRef Name="mkClienteId" />
+          </Key>
+          <Property Name="mkClienteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkCliCategoriaId" Type="int" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" />
+          <Property Name="Rut" Type="varchar" MaxLength="20" />
+          <Property Name="RazonSocial" Type="varchar" MaxLength="60" />
+          <Property Name="Giro" Type="varchar" MaxLength="3" />
+          <Property Name="Email" Type="varchar" MaxLength="120" />
+          <Property Name="LegDir" Type="varchar" MaxLength="60" />
+          <Property Name="LegDirComCod" Type="varchar" MaxLength="7" />
+          <Property Name="LegDirCiuCod" Type="varchar" MaxLength="7" />
+          <Property Name="LegDirPaiCod" Type="varchar" MaxLength="3" />
+          <Property Name="LegDirProCod" Type="varchar" MaxLength="5" />
+          <Property Name="LegDirRegCod" Type="int" />
+          <Property Name="LegDirPosCod" Type="int" />
+          <Property Name="Fon1" Type="varchar" MaxLength="15" />
+          <Property Name="Fantasia" Type="varchar" MaxLength="60" />
+          <Property Name="Rubro" Type="varchar" MaxLength="10" />
+          <Property Name="Vendedor" Type="varchar" MaxLength="20" />
+          <Property Name="Comentario" Type="varchar" MaxLength="120" />
+          <Property Name="PaginaWeb" Type="varchar" MaxLength="180" />
+          <Property Name="EntDir" Type="varchar" MaxLength="60" />
+          <Property Name="EntDirComCod" Type="varchar" MaxLength="7" />
+          <Property Name="EntDirCiuCod" Type="varchar" MaxLength="7" />
+          <Property Name="EntDirPaiCod" Type="varchar" MaxLength="3" />
+          <Property Name="EntDirProCod" Type="varchar" MaxLength="5" />
+          <Property Name="EntDirRegCod" Type="int" />
+          <Property Name="EntDirPosCod" Type="int" />
+          <Property Name="CorDir" Type="varchar" MaxLength="60" />
+          <Property Name="CorDirComCod" Type="varchar" MaxLength="7" />
+          <Property Name="CorDirCiuCod" Type="varchar" MaxLength="7" />
+          <Property Name="CorDirPaiCod" Type="varchar" MaxLength="3" />
+          <Property Name="CorDirProCod" Type="varchar" MaxLength="5" />
+          <Property Name="CorDirRegCod" Type="int" />
+          <Property Name="CorDirPosCod" Type="int" />
+        </EntityType>
+        <EntityType Name="mkContacto">
+          <Key>
+            <PropertyRef Name="mkContactoId" />
+          </Key>
+          <Property Name="mkContactoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkClienteId" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="40" />
+          <Property Name="Apellido" Type="varchar" MaxLength="40" />
+          <Property Name="Cumpleanos" Type="varchar" MaxLength="4" />
+          <Property Name="mkCliCargoId" Type="int" />
+          <Property Name="Telefono" Type="varchar" MaxLength="15" />
+          <Property Name="Celular" Type="varchar" MaxLength="15" />
+          <Property Name="Email" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="mkMarca">
+          <Key>
+            <PropertyRef Name="mkMarcaId" />
+          </Key>
+          <Property Name="mkMarcaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkMarcaValue" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="mkMarketingMarca">
+          <Key>
+            <PropertyRef Name="mkMarketingMarcaId" />
+          </Key>
+          <Property Name="mkMarketingMarcaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkMarcaId" Type="int" />
+          <Property Name="mkCliCategoriaId" Type="int" />
+          <Property Name="RecibeInfo" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="mkMarketingSol">
+          <Key>
+            <PropertyRef Name="mkMarketingSolId" />
+          </Key>
+          <Property Name="mkMarketingSolId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkSolucionId" Type="int" />
+          <Property Name="mkCliCategoriaId" Type="int" />
+          <Property Name="RecibeInfo" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="mkSolucion">
+          <Key>
+            <PropertyRef Name="mkSolucionId" />
+          </Key>
+          <Property Name="mkSolucionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mkSolucionValue" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="mkUser">
+          <Key>
+            <PropertyRef Name="mkUserId" />
+          </Key>
+          <Property Name="mkUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User" Type="varchar" MaxLength="8" />
+          <Property Name="Passwd" Type="varchar" MaxLength="8" />
+          <Property Name="Nombre" Type="varchar" MaxLength="25" />
+          <Property Name="Rol" Type="int" />
+          <Property Name="isActive" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <Association Name="MkCliCargo_CliCategoria_FK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkCliCargo" Type="Self.mkCliCargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkCliCargo">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkCliente_mkCliCategoriaIdFK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkCliente" Type="Self.mkCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkCliente">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkContacto_mkCliCargoFK">
+          <End Role="mkCliCargo" Type="Self.mkCliCargo" Multiplicity="0..1" />
+          <End Role="mkContacto" Type="Self.mkContacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCargo">
+              <PropertyRef Name="mkCliCargoId" />
+            </Principal>
+            <Dependent Role="mkContacto">
+              <PropertyRef Name="mkCliCargoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkContacto_mkClienteFK">
+          <End Role="mkCliente" Type="Self.mkCliente" Multiplicity="0..1" />
+          <End Role="mkContacto" Type="Self.mkContacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliente">
+              <PropertyRef Name="mkClienteId" />
+            </Principal>
+            <Dependent Role="mkContacto">
+              <PropertyRef Name="mkClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingMarca_mkCliCategoriaFK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkMarketingMarca" Type="Self.mkMarketingMarca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkMarketingMarca">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingMarca_mkMarcaFK">
+          <End Role="mkMarca" Type="Self.mkMarca" Multiplicity="0..1" />
+          <End Role="mkMarketingMarca" Type="Self.mkMarketingMarca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkMarca">
+              <PropertyRef Name="mkMarcaId" />
+            </Principal>
+            <Dependent Role="mkMarketingMarca">
+              <PropertyRef Name="mkMarcaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingSol_mkCliCategoriaFK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkMarketingSol" Type="Self.mkMarketingSol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkMarketingSol">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingSol_mkSolucionFK">
+          <End Role="mkSolucion" Type="Self.mkSolucion" Multiplicity="0..1" />
+          <End Role="mkMarketingSol" Type="Self.mkMarketingSol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkSolucion">
+              <PropertyRef Name="mkSolucionId" />
+            </Principal>
+            <Dependent Role="mkMarketingSol">
+              <PropertyRef Name="mkSolucionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mkModelStoreContainer">
+          <EntitySet Name="mkCliCargo" EntityType="Self.mkCliCargo" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkCliCategoria" EntityType="Self.mkCliCategoria" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkCliente" EntityType="Self.mkCliente" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkContacto" EntityType="Self.mkContacto" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkMarca" EntityType="Self.mkMarca" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkMarketingMarca" EntityType="Self.mkMarketingMarca" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkMarketingSol" EntityType="Self.mkMarketingSol" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkSolucion" EntityType="Self.mkSolucion" Schema="softland" store:Type="Tables" />
+          <EntitySet Name="mkUser" EntityType="Self.mkUser" Schema="softland" store:Type="Tables" />
+          <AssociationSet Name="MkCliCargo_CliCategoria_FK" Association="Self.MkCliCargo_CliCategoria_FK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkCliCargo" EntitySet="mkCliCargo" />
+          </AssociationSet>
+          <AssociationSet Name="mkCliente_mkCliCategoriaIdFK" Association="Self.mkCliente_mkCliCategoriaIdFK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkCliente" EntitySet="mkCliente" />
+          </AssociationSet>
+          <AssociationSet Name="mkContacto_mkCliCargoFK" Association="Self.mkContacto_mkCliCargoFK">
+            <End Role="mkCliCargo" EntitySet="mkCliCargo" />
+            <End Role="mkContacto" EntitySet="mkContacto" />
+          </AssociationSet>
+          <AssociationSet Name="mkContacto_mkClienteFK" Association="Self.mkContacto_mkClienteFK">
+            <End Role="mkCliente" EntitySet="mkCliente" />
+            <End Role="mkContacto" EntitySet="mkContacto" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingMarca_mkCliCategoriaFK" Association="Self.mkMarketingMarca_mkCliCategoriaFK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkMarketingMarca" EntitySet="mkMarketingMarca" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingMarca_mkMarcaFK" Association="Self.mkMarketingMarca_mkMarcaFK">
+            <End Role="mkMarca" EntitySet="mkMarca" />
+            <End Role="mkMarketingMarca" EntitySet="mkMarketingMarca" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingSol_mkCliCategoriaFK" Association="Self.mkMarketingSol_mkCliCategoriaFK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkMarketingSol" EntitySet="mkMarketingSol" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingSol_mkSolucionFK" Association="Self.mkMarketingSol_mkSolucionFK">
+            <End Role="mkSolucion" EntitySet="mkSolucion" />
+            <End Role="mkMarketingSol" EntitySet="mkMarketingSol" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="mkCliCargo">
+          <Key>
+            <PropertyRef Name="mkCliCargoId" />
+          </Key>
+          <Property Name="mkCliCargoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkCliCategoriaId" Type="Int32" />
+          <Property Name="CliCargoValue" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkCliCategoria" Relationship="Self.MkCliCargo_CliCategoria_FK" FromRole="mkCliCargo" ToRole="mkCliCategoria" />
+          <NavigationProperty Name="mkContacto" Relationship="Self.mkContacto_mkCliCargoFK" FromRole="mkCliCargo" ToRole="mkContacto" />
+        </EntityType>
+        <EntityType Name="mkCliCategoria">
+          <Key>
+            <PropertyRef Name="mkCliCategoriaId" />
+          </Key>
+          <Property Name="mkCliCategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CliCategoriaValue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkCliCargo" Relationship="Self.MkCliCargo_CliCategoria_FK" FromRole="mkCliCategoria" ToRole="mkCliCargo" />
+          <NavigationProperty Name="mkCliente" Relationship="Self.mkCliente_mkCliCategoriaIdFK" FromRole="mkCliCategoria" ToRole="mkCliente" />
+          <NavigationProperty Name="mkMarketingMarca" Relationship="Self.mkMarketingMarca_mkCliCategoriaFK" FromRole="mkCliCategoria" ToRole="mkMarketingMarca" />
+          <NavigationProperty Name="mkMarketingSol" Relationship="Self.mkMarketingSol_mkCliCategoriaFK" FromRole="mkCliCategoria" ToRole="mkMarketingSol" />
+        </EntityType>
+        <EntityType Name="mkCliente">
+          <Key>
+            <PropertyRef Name="mkClienteId" />
+          </Key>
+          <Property Name="mkClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkCliCategoriaId" Type="Int32" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Rut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RazonSocial" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Giro" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="LegDir" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="LegDirComCod" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="LegDirCiuCod" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="LegDirPaiCod" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="LegDirProCod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="LegDirRegCod" Type="Int32" />
+          <Property Name="LegDirPosCod" Type="Int32" />
+          <Property Name="Fon1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Fantasia" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Rubro" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Vendedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="PaginaWeb" Type="String" MaxLength="180" FixedLength="false" Unicode="false" />
+          <Property Name="EntDir" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="EntDirComCod" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="EntDirCiuCod" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="EntDirPaiCod" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="EntDirProCod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="EntDirRegCod" Type="Int32" />
+          <Property Name="EntDirPosCod" Type="Int32" />
+          <Property Name="CorDir" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CorDirComCod" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CorDirCiuCod" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CorDirPaiCod" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="CorDirProCod" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CorDirRegCod" Type="Int32" />
+          <Property Name="CorDirPosCod" Type="Int32" />
+          <NavigationProperty Name="mkCliCategoria" Relationship="Self.mkCliente_mkCliCategoriaIdFK" FromRole="mkCliente" ToRole="mkCliCategoria" />
+          <NavigationProperty Name="mkContacto" Relationship="Self.mkContacto_mkClienteFK" FromRole="mkCliente" ToRole="mkContacto" />
+        </EntityType>
+        <EntityType Name="mkContacto">
+          <Key>
+            <PropertyRef Name="mkContactoId" />
+          </Key>
+          <Property Name="mkContactoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkClienteId" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Cumpleanos" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="mkCliCargoId" Type="Int32" />
+          <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Celular" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkCliCargo" Relationship="Self.mkContacto_mkCliCargoFK" FromRole="mkContacto" ToRole="mkCliCargo" />
+          <NavigationProperty Name="mkCliente" Relationship="Self.mkContacto_mkClienteFK" FromRole="mkContacto" ToRole="mkCliente" />
+        </EntityType>
+        <EntityType Name="mkMarca">
+          <Key>
+            <PropertyRef Name="mkMarcaId" />
+          </Key>
+          <Property Name="mkMarcaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkMarcaValue" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkMarketingMarca" Relationship="Self.mkMarketingMarca_mkMarcaFK" FromRole="mkMarca" ToRole="mkMarketingMarca" />
+        </EntityType>
+        <EntityType Name="mkMarketingMarca">
+          <Key>
+            <PropertyRef Name="mkMarketingMarcaId" />
+          </Key>
+          <Property Name="mkMarketingMarcaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkMarcaId" Type="Int32" />
+          <Property Name="mkCliCategoriaId" Type="Int32" />
+          <Property Name="RecibeInfo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkCliCategoria" Relationship="Self.mkMarketingMarca_mkCliCategoriaFK" FromRole="mkMarketingMarca" ToRole="mkCliCategoria" />
+          <NavigationProperty Name="mkMarca" Relationship="Self.mkMarketingMarca_mkMarcaFK" FromRole="mkMarketingMarca" ToRole="mkMarca" />
+        </EntityType>
+        <EntityType Name="mkMarketingSol">
+          <Key>
+            <PropertyRef Name="mkMarketingSolId" />
+          </Key>
+          <Property Name="mkMarketingSolId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkSolucionId" Type="Int32" />
+          <Property Name="mkCliCategoriaId" Type="Int32" />
+          <Property Name="RecibeInfo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkCliCategoria" Relationship="Self.mkMarketingSol_mkCliCategoriaFK" FromRole="mkMarketingSol" ToRole="mkCliCategoria" />
+          <NavigationProperty Name="mkSolucion" Relationship="Self.mkMarketingSol_mkSolucionFK" FromRole="mkMarketingSol" ToRole="mkSolucion" />
+        </EntityType>
+        <EntityType Name="mkSolucion">
+          <Key>
+            <PropertyRef Name="mkSolucionId" />
+          </Key>
+          <Property Name="mkSolucionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mkSolucionValue" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="mkMarketingSol" Relationship="Self.mkMarketingSol_mkSolucionFK" FromRole="mkSolucion" ToRole="mkMarketingSol" />
+        </EntityType>
+        <EntityType Name="mkUser">
+          <Key>
+            <PropertyRef Name="mkUserId" />
+          </Key>
+          <Property Name="mkUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Passwd" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Rol" Type="Int32" />
+          <Property Name="isActive" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="MkCliCargo_CliCategoria_FK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkCliCargo" Type="Self.mkCliCargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkCliCargo">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkContacto_mkCliCargoFK">
+          <End Role="mkCliCargo" Type="Self.mkCliCargo" Multiplicity="0..1" />
+          <End Role="mkContacto" Type="Self.mkContacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCargo">
+              <PropertyRef Name="mkCliCargoId" />
+            </Principal>
+            <Dependent Role="mkContacto">
+              <PropertyRef Name="mkCliCargoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkCliente_mkCliCategoriaIdFK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkCliente" Type="Self.mkCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkCliente">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingMarca_mkCliCategoriaFK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkMarketingMarca" Type="Self.mkMarketingMarca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkMarketingMarca">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingSol_mkCliCategoriaFK">
+          <End Role="mkCliCategoria" Type="Self.mkCliCategoria" Multiplicity="0..1" />
+          <End Role="mkMarketingSol" Type="Self.mkMarketingSol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliCategoria">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Principal>
+            <Dependent Role="mkMarketingSol">
+              <PropertyRef Name="mkCliCategoriaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkContacto_mkClienteFK">
+          <End Role="mkCliente" Type="Self.mkCliente" Multiplicity="0..1" />
+          <End Role="mkContacto" Type="Self.mkContacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkCliente">
+              <PropertyRef Name="mkClienteId" />
+            </Principal>
+            <Dependent Role="mkContacto">
+              <PropertyRef Name="mkClienteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingMarca_mkMarcaFK">
+          <End Role="mkMarca" Type="Self.mkMarca" Multiplicity="0..1" />
+          <End Role="mkMarketingMarca" Type="Self.mkMarketingMarca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkMarca">
+              <PropertyRef Name="mkMarcaId" />
+            </Principal>
+            <Dependent Role="mkMarketingMarca">
+              <PropertyRef Name="mkMarcaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="mkMarketingSol_mkSolucionFK">
+          <End Role="mkSolucion" Type="Self.mkSolucion" Multiplicity="0..1" />
+          <End Role="mkMarketingSol" Type="Self.mkMarketingSol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mkSolucion">
+              <PropertyRef Name="mkSolucionId" />
+            </Principal>
+            <Dependent Role="mkMarketingSol">
+              <PropertyRef Name="mkSolucionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mkContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="mkCliCargo" EntityType="Self.mkCliCargo" />
+          <EntitySet Name="mkCliCategoria" EntityType="Self.mkCliCategoria" />
+          <EntitySet Name="mkCliente" EntityType="Self.mkCliente" />
+          <EntitySet Name="mkContacto" EntityType="Self.mkContacto" />
+          <EntitySet Name="mkMarca" EntityType="Self.mkMarca" />
+          <EntitySet Name="mkMarketingMarca" EntityType="Self.mkMarketingMarca" />
+          <EntitySet Name="mkMarketingSol" EntityType="Self.mkMarketingSol" />
+          <EntitySet Name="mkSolucion" EntityType="Self.mkSolucion" />
+          <EntitySet Name="mkUser" EntityType="Self.mkUser" />
+          <AssociationSet Name="MkCliCargo_CliCategoria_FK" Association="Self.MkCliCargo_CliCategoria_FK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkCliCargo" EntitySet="mkCliCargo" />
+          </AssociationSet>
+          <AssociationSet Name="mkContacto_mkCliCargoFK" Association="Self.mkContacto_mkCliCargoFK">
+            <End Role="mkCliCargo" EntitySet="mkCliCargo" />
+            <End Role="mkContacto" EntitySet="mkContacto" />
+          </AssociationSet>
+          <AssociationSet Name="mkCliente_mkCliCategoriaIdFK" Association="Self.mkCliente_mkCliCategoriaIdFK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkCliente" EntitySet="mkCliente" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingMarca_mkCliCategoriaFK" Association="Self.mkMarketingMarca_mkCliCategoriaFK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkMarketingMarca" EntitySet="mkMarketingMarca" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingSol_mkCliCategoriaFK" Association="Self.mkMarketingSol_mkCliCategoriaFK">
+            <End Role="mkCliCategoria" EntitySet="mkCliCategoria" />
+            <End Role="mkMarketingSol" EntitySet="mkMarketingSol" />
+          </AssociationSet>
+          <AssociationSet Name="mkContacto_mkClienteFK" Association="Self.mkContacto_mkClienteFK">
+            <End Role="mkCliente" EntitySet="mkCliente" />
+            <End Role="mkContacto" EntitySet="mkContacto" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingMarca_mkMarcaFK" Association="Self.mkMarketingMarca_mkMarcaFK">
+            <End Role="mkMarca" EntitySet="mkMarca" />
+            <End Role="mkMarketingMarca" EntitySet="mkMarketingMarca" />
+          </AssociationSet>
+          <AssociationSet Name="mkMarketingSol_mkSolucionFK" Association="Self.mkMarketingSol_mkSolucionFK">
+            <End Role="mkSolucion" EntitySet="mkSolucion" />
+            <End Role="mkMarketingSol" EntitySet="mkMarketingSol" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mkModelStoreContainer" CdmEntityContainer="mkContext">
+          <EntitySetMapping Name="mkCliCargo">
+            <EntityTypeMapping TypeName="mkModel.mkCliCargo">
+              <MappingFragment StoreEntitySet="mkCliCargo">
+                <ScalarProperty Name="mkCliCargoId" ColumnName="mkCliCargoId" />
+                <ScalarProperty Name="mkCliCategoriaId" ColumnName="mkCliCategoriaId" />
+                <ScalarProperty Name="CliCargoValue" ColumnName="CliCargoValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkCliCategoria">
+            <EntityTypeMapping TypeName="mkModel.mkCliCategoria">
+              <MappingFragment StoreEntitySet="mkCliCategoria">
+                <ScalarProperty Name="mkCliCategoriaId" ColumnName="mkCliCategoriaId" />
+                <ScalarProperty Name="CliCategoriaValue" ColumnName="CliCategoriaValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkCliente">
+            <EntityTypeMapping TypeName="mkModel.mkCliente">
+              <MappingFragment StoreEntitySet="mkCliente">
+                <ScalarProperty Name="mkClienteId" ColumnName="mkClienteId" />
+                <ScalarProperty Name="mkCliCategoriaId" ColumnName="mkCliCategoriaId" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Giro" ColumnName="Giro" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LegDir" ColumnName="LegDir" />
+                <ScalarProperty Name="LegDirComCod" ColumnName="LegDirComCod" />
+                <ScalarProperty Name="LegDirCiuCod" ColumnName="LegDirCiuCod" />
+                <ScalarProperty Name="LegDirPaiCod" ColumnName="LegDirPaiCod" />
+                <ScalarProperty Name="LegDirProCod" ColumnName="LegDirProCod" />
+                <ScalarProperty Name="LegDirRegCod" ColumnName="LegDirRegCod" />
+                <ScalarProperty Name="LegDirPosCod" ColumnName="LegDirPosCod" />
+                <ScalarProperty Name="Fon1" ColumnName="Fon1" />
+                <ScalarProperty Name="Fantasia" ColumnName="Fantasia" />
+                <ScalarProperty Name="Rubro" ColumnName="Rubro" />
+                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="PaginaWeb" ColumnName="PaginaWeb" />
+                <ScalarProperty Name="EntDir" ColumnName="EntDir" />
+                <ScalarProperty Name="EntDirComCod" ColumnName="EntDirComCod" />
+                <ScalarProperty Name="EntDirCiuCod" ColumnName="EntDirCiuCod" />
+                <ScalarProperty Name="EntDirPaiCod" ColumnName="EntDirPaiCod" />
+                <ScalarProperty Name="EntDirProCod" ColumnName="EntDirProCod" />
+                <ScalarProperty Name="EntDirRegCod" ColumnName="EntDirRegCod" />
+                <ScalarProperty Name="EntDirPosCod" ColumnName="EntDirPosCod" />
+                <ScalarProperty Name="CorDir" ColumnName="CorDir" />
+                <ScalarProperty Name="CorDirComCod" ColumnName="CorDirComCod" />
+                <ScalarProperty Name="CorDirCiuCod" ColumnName="CorDirCiuCod" />
+                <ScalarProperty Name="CorDirPaiCod" ColumnName="CorDirPaiCod" />
+                <ScalarProperty Name="CorDirProCod" ColumnName="CorDirProCod" />
+                <ScalarProperty Name="CorDirRegCod" ColumnName="CorDirRegCod" />
+                <ScalarProperty Name="CorDirPosCod" ColumnName="CorDirPosCod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkContacto">
+            <EntityTypeMapping TypeName="mkModel.mkContacto">
+              <MappingFragment StoreEntitySet="mkContacto">
+                <ScalarProperty Name="mkContactoId" ColumnName="mkContactoId" />
+                <ScalarProperty Name="mkClienteId" ColumnName="mkClienteId" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cumpleanos" ColumnName="Cumpleanos" />
+                <ScalarProperty Name="mkCliCargoId" ColumnName="mkCliCargoId" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkMarca">
+            <EntityTypeMapping TypeName="mkModel.mkMarca">
+              <MappingFragment StoreEntitySet="mkMarca">
+                <ScalarProperty Name="mkMarcaId" ColumnName="mkMarcaId" />
+                <ScalarProperty Name="mkMarcaValue" ColumnName="mkMarcaValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkMarketingMarca">
+            <EntityTypeMapping TypeName="mkModel.mkMarketingMarca">
+              <MappingFragment StoreEntitySet="mkMarketingMarca">
+                <ScalarProperty Name="mkMarketingMarcaId" ColumnName="mkMarketingMarcaId" />
+                <ScalarProperty Name="mkMarcaId" ColumnName="mkMarcaId" />
+                <ScalarProperty Name="mkCliCategoriaId" ColumnName="mkCliCategoriaId" />
+                <ScalarProperty Name="RecibeInfo" ColumnName="RecibeInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkMarketingSol">
+            <EntityTypeMapping TypeName="mkModel.mkMarketingSol">
+              <MappingFragment StoreEntitySet="mkMarketingSol">
+                <ScalarProperty Name="mkMarketingSolId" ColumnName="mkMarketingSolId" />
+                <ScalarProperty Name="mkSolucionId" ColumnName="mkSolucionId" />
+                <ScalarProperty Name="mkCliCategoriaId" ColumnName="mkCliCategoriaId" />
+                <ScalarProperty Name="RecibeInfo" ColumnName="RecibeInfo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkSolucion">
+            <EntityTypeMapping TypeName="mkModel.mkSolucion">
+              <MappingFragment StoreEntitySet="mkSolucion">
+                <ScalarProperty Name="mkSolucionId" ColumnName="mkSolucionId" />
+                <ScalarProperty Name="mkSolucionValue" ColumnName="mkSolucionValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mkUser">
+            <EntityTypeMapping TypeName="mkModel.mkUser">
+              <MappingFragment StoreEntitySet="mkUser">
+                <ScalarProperty Name="mkUserId" ColumnName="mkUserId" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Passwd" ColumnName="Passwd" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

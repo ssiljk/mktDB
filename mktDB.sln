@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mktDB", "mktDB\mktDB.csproj", "{06A61681-9D4F-4920-B35A-81D9C45EADD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06A61681-9D4F-4920-B35A-81D9C45EADD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06A61681-9D4F-4920-B35A-81D9C45EADD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06A61681-9D4F-4920-B35A-81D9C45EADD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06A61681-9D4F-4920-B35A-81D9C45EADD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3575D6B4-2B05-400A-B2D4-85874CB847E9}
+	EndGlobalSection
+EndGlobal

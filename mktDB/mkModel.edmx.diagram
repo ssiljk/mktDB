@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25cc2e63a7c148f1a4bc0cf8fff94e27" Name="Diagram1">
+        <EntityTypeShape EntityType="mkModel.mkCliCargo" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkCliCategoria" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkCliente" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkContacto" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkMarca" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkMarketingMarca" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkMarketingSol" Width="1.5" PointX="6" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkSolucion" Width="1.5" PointX="3.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mkModel.mkUser" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="mkModel.MkCliCargo_CliCategoria_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkContacto_mkCliCargoFK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkCliente_mkCliCategoriaIdFK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkMarketingMarca_mkCliCategoriaFK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkMarketingSol_mkCliCategoriaFK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkContacto_mkClienteFK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkMarketingMarca_mkMarcaFK" ManuallyRouted="false" />
+        <AssociationConnector Association="mkModel.mkMarketingSol_mkSolucionFK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
