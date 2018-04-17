@@ -16,6 +16,8 @@ namespace mktDB.Messages
         Edit,
         Delete,
         Commit,
-        Refresh
+        Refresh,
+        Quit,
+        None
     }
 }

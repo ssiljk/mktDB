@@ -92,6 +92,7 @@
     <Compile Include="EntityData\IEntityWithId.cs" />
     <Compile Include="EntityData\mkCliente.metadata.cs" />
     <Compile Include="EntityData\PropertyError.cs" />
+    <Compile Include="Messages\InEdit.cs" />
     <Compile Include="Support\CrudVMBase.cs" />
     <Compile Include="Support\HourGlass.xaml.cs">
       <DependentUpon>HourGlass.xaml</DependentUpon>
