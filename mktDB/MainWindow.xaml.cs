@@ -15,28 +15,25 @@ using System.Windows.Shapes;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using System.Windows.Media.Animation;
+using mktDB.Messages;
+using mktDB.ViewModel;
 
 namespace mktDB
 {
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
-
             InitializeComponent();
             // Apply default form level font style
             Style = (Style)FindResource(typeof(Window));
             Messenger.Default.Register<NavigateMessage>(this, (action) => ShowUserControl(action));
             Messenger.Default.Register<UserMessage>(this, (action) => ReceiveUserMessage(action));
-            Messenger.Default.Register<InEdit>(this, (action) => ReceiveInEditMessage(action));
             this.DataContext = new MainWindowViewModel();
         }
-
-        private void ReceiveInEditMessage(InEdit inEdit)
-        {
-            this.CommandTab.IsEnabled = !inEdit.Mode;
-        }
-
         private void ReceiveUserMessage(UserMessage msg)
         {
             UIMessage.Opacity = 1;
@@ -46,8 +43,7 @@ namespace mktDB
         }
         private void ShowUserControl(NavigateMessage nm)
         {
-            CommandTab.SelectedItem = EditTabItem;
-            Holder.Content = nm.View;
+            EditFrame.Content = nm.View;
         }
     }
 }

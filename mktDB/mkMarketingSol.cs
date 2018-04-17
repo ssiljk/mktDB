@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace mktDB.EntityData
+namespace mktDB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class mkMarketingMarca
+    public partial class mkMarketingSol
     {
-        public int mkMarketingMarcaId { get; set; }
-        public Nullable<int> mkMarcaId { get; set; }
+        public int mkMarketingSolId { get; set; }
+        public Nullable<int> mkSolucionId { get; set; }
         public Nullable<int> mkCliCategoriaId { get; set; }
         public string RecibeInfo { get; set; }
     
         public virtual mkCliCategoria mkCliCategoria { get; set; }
-        public virtual mkMarca mkMarca { get; set; }
+        public virtual mkSolucion mkSolucion { get; set; }
     }
 }

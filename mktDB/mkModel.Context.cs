@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace mktDB.EntityData
+namespace mktDB
 {
     using System;
     using System.Data.Entity;

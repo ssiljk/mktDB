@@ -1,4 +1,5 @@
 ﻿using System;
+using mktDB.Support;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,29 +10,29 @@ using System.Data.Entity;
 using GalaSoft.MvvmLight.Messaging;
 using System.Windows.Controls;
 using System.Windows.Threading;
-
-
-namespace mktDB
+using mktDB.Messages;
+using mktDB.ViewModel.RowVM;
+namespace mktDB.ViewModel
 {
-    class MKClientesViewModel : CrudVMBase
+    class MKCliCargoViewModel : CrudVMBase
     {
-        public MKClienteVM SelectedmkCliente { get; set; }
-        public ObservableCollection<MKClienteVM> MKClientes { get; set; }
-        public MKClientesViewModel() : base()
+        public MKCliCargoVM SelectedmkCliCargo { get; set; }
+        public ObservableCollection<MKCliCargoVM> MKCliCargos { get; set; }
+        public MKCliCargoViewModel() : base()
         {
 
         }
         protected override void CommitUpdates()
         {
             UserMessage msg = new UserMessage();
-            var inserted = (from c in MKClientes
+            var inserted = (from c in MKCliCargos
                             where c.IsNew
                             select c).ToList();
             if (db.ChangeTracker.HasChanges() || inserted.Count > 0)
             {
-                foreach (MKClienteVM c in inserted)
+                foreach (MKCliCargoVM c in inserted)
                 {
-                    db.mkCliente.Add(c.ThemkCliente);
+                    db.mkCliCargo.Add(c.ThemkCliCargo);
                 }
                 try
                 {
@@ -56,7 +57,7 @@ namespace mktDB
         protected override void DeleteCurrent()
         {
             UserMessage msg = new UserMessage();
-            if (SelectedmkCliente != null)
+            if (SelectedmkCliCargo != null)
             {
                 int NumOrders = NumberOfContactos();
                 if (NumOrders > 0)
@@ -65,50 +66,50 @@ namespace mktDB
                 }
                 else
                 {
-                    db.mkCliente.Remove(SelectedmkCliente.ThemkCliente);
-                    MKClientes.Remove(SelectedmkCliente);
-                    RaisePropertyChanged("MKClientes");
+                    db.mkCliCargo.Remove(SelectedmkCliCargo.ThemkCliCargo);
+                    MKCliCargos.Remove(SelectedmkCliCargo);
+                    RaisePropertyChanged("MKCliCargo");
                     msg.Message = "Borrado";
                 }
             }
             else
             {
-                msg.Message = "No hay cliente seleccionado para borrar";
+                msg.Message = "No hay CliCargo seleccionado para borrar";
             }
             Messenger.Default.Send<UserMessage>(msg);
         }
 
         private int NumberOfContactos()
         {
-            var cust = db.mkCliente.Find(SelectedmkCliente.ThemkCliente.mkClienteId);
-            // Cuenta cuantos contactos tiene el cliente
-            int ordersCount = db.Entry(cust)
+            var cust = db.mkCliCargo.Find(SelectedmkCliCargo.ThemkCliCargo.mkCliCargoId);
+            // Cuenta cuantos contactos tiene el CliCargo
+            int contactosCount = db.Entry(cust)
                                 .Collection(c => c.mkContacto)
                                 .Query()
                                 .Count();
-            return ordersCount;
+            return contactosCount;
         }
         protected async override void GetData()
         {
             ThrobberVisible = Visibility.Visible;
-            ObservableCollection<MKClienteVM> _clientes = new ObservableCollection<MKClienteVM>();
+            ObservableCollection<MKCliCargoVM> _CliCargos = new ObservableCollection<MKCliCargoVM>();
             try
             {
-                var mkClientes = await (from c in db.mkCliente
-                                        orderby c.RazonSocial
+                var mkCliCargos = await (from c in db.mkCliCargo
+                                        orderby c.CliCargoValue
                                         select c).ToListAsync();
                 //  await Task.Delay(9000);
-                foreach (mkCliente cust in mkClientes)
+                foreach (mkCliCargo cust in mkCliCargos)
                 {
-                    _clientes.Add(new MKClienteVM { IsNew = false, ThemkCliente = cust });
+                    _CliCargos.Add(new MKCliCargoVM { IsNew = false, ThemkCliCargo = cust });
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception{0}", ex);
             }
-            MKClientes = _clientes;
-            RaisePropertyChanged("MKClientes");
+            MKCliCargos = _CliCargos;
+            RaisePropertyChanged("MKCliCargo");
             ThrobberVisible = Visibility.Collapsed;
         }
     }

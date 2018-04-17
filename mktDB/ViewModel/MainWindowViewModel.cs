@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Media;
+using mktDB.Support;
+using mktDB.ViewModel.RowVM;
+using mktDB.Messages;
+using mktDB.Views;
+using mktDB;
 
-namespace mktDB
+namespace mktDB.ViewModel
 {
     public class MainWindowViewModel : NotifyUIBase
     {
