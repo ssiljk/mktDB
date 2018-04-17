@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mktDB
+namespace mktDB.EntityData
 {
-    class UserMessage
+    public interface IEntityWithId
     {
-        public string Message { get; set; }
+        int Id { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mktDB.Support
+namespace mktDB
 {
     public class NotifyUIBase : INotifyPropertyChanged
     {

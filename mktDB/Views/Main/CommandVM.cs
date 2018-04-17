@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using System.Windows.Media;
-using mktDB.Messages;
 
-namespace mktDB.ViewModel.RowVM
+namespace mktDB
 {
     public class CommandVM
     {

@@ -1,6 +1,6 @@
-﻿using mktDB.Support;
+﻿
 
-namespace mktDB.ViewModel.RowVM
+namespace mktDB
 {
     class MKCliCargoVM : VMBase
     {

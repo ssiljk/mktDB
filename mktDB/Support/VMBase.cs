@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using mktDB.Support;
 
-namespace mktDB.Support
+namespace mktDB
 {
         class VMBase : NotifyUIBase
         {

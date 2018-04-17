@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using mktDB.Support;
-using mktDB.Messages;
 using GalaSoft.MvvmLight.Messaging;
 
-namespace mktDB.Support
+namespace mktDB
 {
     class CrudVMBase : NotifyUIBase
     {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using mktDB.Messages;
 
-namespace mktDB.ViewModel.RowVM
+
+namespace mktDB
 {
     public class ViewVM
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace mktDB.Messages
+namespace mktDB
 {
     public class CommandMessage
     {
@@ -16,6 +16,8 @@ namespace mktDB.Messages
         Edit,
         Delete,
         Commit,
-        Refresh
+        Refresh,
+        Quit,
+        None
     }
 }

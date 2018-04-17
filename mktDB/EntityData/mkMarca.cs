@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace mktDB
+namespace mktDB.EntityData
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class mkCliCargo
+    public partial class mkMarca
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public mkCliCargo()
+        public mkMarca()
         {
-            this.mkContacto = new HashSet<mkContacto>();
+            this.mkMarketingMarca = new HashSet<mkMarketingMarca>();
         }
     
-        public int mkCliCargoId { get; set; }
-        public Nullable<int> mkCliCategoriaId { get; set; }
-        public string CliCargoValue { get; set; }
+        public int mkMarcaId { get; set; }
+        public string mkMarcaValue { get; set; }
     
-        public virtual mkCliCategoria mkCliCategoria { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<mkContacto> mkContacto { get; set; }
+        public virtual ICollection<mkMarketingMarca> mkMarketingMarca { get; set; }
     }
 }

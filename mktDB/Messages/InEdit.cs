@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace mktDB
 {
-    class UserMessage
+    public class InEdit
     {
-        public string Message { get; set; }
+        public bool Mode { get; set; }
     }
 }
